@@ -5,6 +5,7 @@
   overflow: visible;
   background: transparent;
   z-index: 10;
+  margin-top: -120px; /* Move up to overlap cards more */
 }
 
 .track {
