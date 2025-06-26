@@ -1,0 +1,242 @@
+.app {
+  min-height: 100vh;
+  max-height: 100vh;
+  background: #000000;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Global Beams Background */
+.beams-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Hero Section */
+.hero {
+  min-height: auto;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 10;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 0;
+  line-height: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text {
+  display: inline-block;
+  color: #ffffff;
+  text-shadow: 0 0 40px rgba(102, 126, 234, 0.8), 0 0 80px rgba(102, 126, 234, 0.4);
+}
+
+
+
+
+
+
+
+/* Blur Text Specific Styles */
+.hero-title {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* BlurText component styles */
+.inline-block {
+  display: inline-block;
+}
+
+.will-change-\[transform\,filter\,opacity\] {
+  will-change: transform, filter, opacity;
+}
+
+/* Text Pressure Section */
+.text-pressure-section {
+  padding: 10px 0 20px;
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Tilted Cards Section */
+.tilted-cards-section {
+  padding: 10px 0 20px;
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+
+
+.tilted-cards-section .container {
+  max-width: 100%;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.tilted-cards-grid {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0;
+  padding: 20px 15px;
+  position: relative;
+  width: max-content;
+}
+
+.card-link {
+  text-decoration: none;
+  display: block;
+  width: 300px;
+  height: 300px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* Mouse Indicator */
+.mouse-indicator {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  pointer-events: none;
+  z-index: 10;
+  transition: left 0.1s ease-out, opacity 0.2s ease;
+}
+
+.indicator-line {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.indicator-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .text-pressure-section {
+    padding: 10px 0 15px;
+  }
+  
+  .tilted-cards-section {
+    padding: 10px 0 20px;
+  }
+  
+  .tilted-cards-grid {
+    gap: 1rem;
+    padding: 15px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    transform: none !important;
+  }
+  
+  .tilted-cards-grid::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .tilted-cards-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .tilted-cards-grid::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+  }
+  
+  .card-link {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .mouse-indicator {
+    display: none;
+  }
+}
+
+/* Animated Train Section */
+.animated-train-section {
+  padding: 0;
+  position: relative;
+  z-index: 3;
+  background: transparent;
+  overflow: visible;
+  min-height: 200px;
+  margin-top: -50px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .tilted-cards-grid {
+    gap: 0.75rem;
+  }
+  
+  .card-link {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .animated-train-section {
+    padding: 0;
+    margin-top: -30px;
+  }
+} 
