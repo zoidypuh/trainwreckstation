@@ -4,6 +4,7 @@ import TextPressure from './components/TextPressure'
 import TiltedCard from './components/TiltedCard'
 import AnimatedTrain from './components/AnimatedTrain'
 import Beams from './components/Beams'
+import EventsTable from './components/EventsTable'
 import './App.css'
 
 function App() {
@@ -153,6 +154,9 @@ function App() {
       <section className="animated-train-section">
         <AnimatedTrain />
       </section>
+
+      {/* Events Table Section */}
+      <EventsTable />
 
     </div>
   )

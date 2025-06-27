@@ -1,0 +1,269 @@
+.events-section {
+  padding: 60px 0 80px;
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.events-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.events-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    to right, 
+    transparent, 
+    rgba(102, 126, 234, 0.5) 20%, 
+    rgba(102, 126, 234, 0.8) 50%, 
+    rgba(102, 126, 234, 0.5) 80%, 
+    transparent
+  );
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.events-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-shadow: 
+    0 0 20px rgba(102, 126, 234, 0.8),
+    0 0 40px rgba(102, 126, 234, 0.4),
+    0 0 60px rgba(102, 126, 234, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+}
+
+.events-section.visible .events-title {
+  opacity: 1;
+  transform: translateY(0);
+  animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  from {
+    text-shadow: 
+      0 0 20px rgba(102, 126, 234, 0.8),
+      0 0 40px rgba(102, 126, 234, 0.4),
+      0 0 60px rgba(102, 126, 234, 0.2);
+  }
+  to {
+    text-shadow: 
+      0 0 30px rgba(102, 126, 234, 1),
+      0 0 50px rgba(102, 126, 234, 0.6),
+      0 0 70px rgba(102, 126, 234, 0.3);
+  }
+}
+
+.events-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 10px;
+  box-shadow: 
+    0 0 30px rgba(102, 126, 234, 0.2),
+    inset 0 0 20px rgba(102, 126, 234, 0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s;
+}
+
+.events-section.visible .events-table-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.events-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.events-table thead {
+  background: rgba(102, 126, 234, 0.1);
+  border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+}
+
+.events-table th {
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+}
+
+.events-table tbody tr {
+  border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.events-section.visible .event-row {
+  opacity: 1;
+  transform: translateX(0);
+  animation: slideIn 0.6s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.events-table tbody tr:hover {
+  background: rgba(102, 126, 234, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+}
+
+.events-table td {
+  padding: 18px 15px;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+}
+
+.date-cell {
+  font-weight: 600;
+  color: rgba(102, 126, 234, 0.9);
+  white-space: nowrap;
+}
+
+.venue-cell {
+  color: #b0b0b0;
+}
+
+.city-cell {
+  color: #b0b0b0;
+  white-space: nowrap;
+}
+
+.ticket-link {
+  display: inline-block;
+  padding: 8px 20px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(138, 43, 226, 0.8));
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+}
+
+.ticket-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.ticket-link:hover {
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.9), rgba(102, 126, 234, 0.9));
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.ticket-link:hover::before {
+  width: 200px;
+  height: 200px;
+}
+
+/* Scrollbar styling */
+.events-table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.events-table-wrapper::-webkit-scrollbar-track {
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 4px;
+}
+
+.events-table-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(102, 126, 234, 0.5);
+  border-radius: 4px;
+}
+
+.events-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(102, 126, 234, 0.7);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .events-section {
+    padding: 40px 0 60px;
+  }
+  
+  .events-title {
+    font-size: 1.75rem;
+    margin-bottom: 30px;
+  }
+  
+  .events-table {
+    font-size: 0.875rem;
+  }
+  
+  .events-table th,
+  .events-table td {
+    padding: 12px 10px;
+  }
+  
+  .ticket-link {
+    padding: 6px 16px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .events-table th:nth-child(2),
+  .events-table td:nth-child(2) {
+    display: none; /* Hide venue column on very small screens */
+  }
+  
+  .events-table th,
+  .events-table td {
+    padding: 10px 8px;
+  }
+  
+  .ticket-link {
+    padding: 5px 12px;
+  }
+} 
